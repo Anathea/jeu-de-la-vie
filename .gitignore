@@ -1,0 +1,8 @@
+debug/*
+release/*
+.qmake.stash
+Makefile
+Makefile.*
+projet_Vie.pro.user
+TP_gameLife.pdf
+*.qmlc
