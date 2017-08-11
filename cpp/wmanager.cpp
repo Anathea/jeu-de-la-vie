@@ -114,7 +114,7 @@ void WManager::sendCaseToCpp(QPoint pt)
 
 void WManager::initPlateau(int i, int j)
 {
-    m_plateau = vector<vector<int>> { (size_t)i, vector<int>(j) };
+    m_plateau = std::vector<std::vector<int>> { (size_t)i, std::vector<int>(j) };
 
     // écrire la fonction équivalente à l'initialisation avec 2 boucles for, qqchose comme
 
@@ -125,10 +125,10 @@ void WManager::initPlateau(int i, int j)
 //    }
 }
 
-QStringList WManager::createStringFromPlateau(vector<vector<int>> plateau)
+QStringList WManager::createStringFromPlateau(std::vector<std::vector<int>> plateau)
 {
     QStringList rslt;
-    for( vector<int> ligneP : plateau )
+    for( std::vector<int> ligneP : plateau )
     {
         QString ligne("");
         for( int v : ligneP)

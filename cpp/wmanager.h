@@ -15,7 +15,6 @@
 #include <vector>
 
 
-using namespace std;
 class WManager : public QObject
 {
     Q_OBJECT
@@ -45,10 +44,10 @@ public:
     Q_INVOKABLE void sendCaseToCpp(QPoint );
 
     //http://annabellecollin.perso.math.cnrs.fr/TPS/TP_3.pdf
-    QStringList createStringFromPlateau(vector<vector<int>> plateau);
+    QStringList createStringFromPlateau(std::vector<std::vector<int>> plateau);
 
 private :
-    vector<vector<int>> m_plateau;
+    std::vector<std::vector<int>> m_plateau;
     void initPlateau(int i=10, int j=10);
 
 protected:
