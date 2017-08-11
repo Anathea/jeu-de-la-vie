@@ -9,6 +9,7 @@
 
 class GameOfLife //Définition de votre classe
 {
+
 public: //Méthodes et opérateurs de la classe
     //Constructeur qui permet de construire un objet de la classe. Il peut y
     //avoir différents constructeurs (comme nous verrons dans la suite)
@@ -31,8 +32,8 @@ private: //Les attributs de la classe
 //    GameLife();
 //
 //    void initialisation();
-//    void load(std::vector<int> grid);
-//    std::vector<int> grid() const ;
+//    void load(std::verctor<std::vector<int>> grid);
+//    std::vector<std::vector<int>> grid() const ;
 //    // On utilisera : std::vector<std::vector<int>> neighbours;
 //    // pour les 8 déplacements {{-1, -1}, {-1,0}, etc...
 //    void nbAlivedNeighbours(int i, int j);
@@ -46,8 +47,9 @@ private: //Les attributs de la classe
 //private:
 //    int m_nbLines;
 //    int m_nbColumns;
-//    std::vector<int> m_grid;
+//    std::vector<std::vector<int>> m_grid;
 //    std::vector<std::vector<int>> m_history; // for reversePlay
+
 };
 
 #endif // GAMEOFLIFE_H
