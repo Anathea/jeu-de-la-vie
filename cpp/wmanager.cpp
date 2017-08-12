@@ -30,7 +30,7 @@ void WManager::makeQMLtab(QString nomFichierQMLsansExtension)
     quickViews.push_back(view);
 
     view->setResizeMode( QQuickView::SizeRootObjectToView);
-    view->setGeometry(QRect(120, 120, 350, 200));
+    view->setGeometry(QRect(120, 120, 405, 260)); // 400 de large + 5 de marge, 255 de haut + 5 de marge
 
     // Mise en mémoire des objets pour communiquer avec le QML (avant le chargement de la page)
     m_QMLcontexts << view->engine()->rootContext();
@@ -47,7 +47,8 @@ void WManager::makeQMLtab(QString nomFichierQMLsansExtension)
     //
     QString repertoireProjet = getRepertoireProjet();
 
-    QString fichierQML = repertoireProjet + QString("/qml/") + nomFichierQMLsansExtension + QString(".qml");
+//    QString fichierQML = repertoireProjet + QString("/qml/") + nomFichierQMLsansExtension + QString(".qml");
+    QString fichierQML = QCoreApplication::applicationDirPath() + "/qml/qml.qml";
     std::cout  << "charge le fichier QML : " << fichierQML.toLatin1().constData() << std::endl;
 
     // Chargement du fichier QML

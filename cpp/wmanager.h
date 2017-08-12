@@ -53,7 +53,7 @@ private :
 protected:
     std::vector<QQuickView*> quickViews;
 
-    QString getRepertoireProjet(bool trace = false);   
+    QString getRepertoireProjet(bool trace = false);
     
     QVector<QQmlContext *>          m_QMLcontexts;
     QQmlContext*                    m_qmlContext;
@@ -68,5 +68,3 @@ private :
 };
 
 #endif // WMANAGER_H
-
-

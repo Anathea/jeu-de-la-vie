@@ -1,7 +1,7 @@
 #include "GameOfLife.h"  // Inclure le fichier .h
 
 // Constructeur
-GameOfLife::GameOfLife(int numLines, int numCols) {}
+GameOfLife::GameOfLife() {}
 
 // Initialisation du jeu
 void GameOfLife::initialisation() {}
@@ -13,4 +13,4 @@ void GameOfLife::play() {}
 int GameOfLife::nbAlivedNeighbours(int i, int j) { return 0; }
 
 // Écrit un fichier avec la solution au format Paraview
-void GameOfLife::saveSolution(int it) {}
+void GameOfLife::saveSolution(std::vector<std::vector<int>> grid) {}
