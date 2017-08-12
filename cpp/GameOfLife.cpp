@@ -14,3 +14,20 @@ int GameOfLife::nbAlivedNeighbours(int i, int j) { return 0; }
 
 // Écrit un fichier avec la solution au format Paraview
 void GameOfLife::saveSolution(std::vector<std::vector<int>> grid) {}
+
+void GameOfLife::afficheGrid(std::vector<std::vector<int>> grid)
+{
+  for (std::vector<int> tabDeTab : grid)
+  {
+    for (int element : tabDeTab)
+    {
+      std::cout << element << " | ";
+    }
+    std::cout << std::endl;
+    for (int i; i < tabDansTab.size(); ++i)
+    {
+      std::cout << "————";
+    }
+    std::cout << endl;
+  }
+}
