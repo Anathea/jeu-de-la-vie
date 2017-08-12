@@ -14,7 +14,7 @@ public :
     void load(std::vector<std::vector<int>> grid);
 
     std::vector<std::vector<int>> grid() const;
-    void afficheGrid() const; // afficher une grille en console
+    void afficheGrid(std::vector<std::vector<int>>) const; // afficher une grille en console
 
     void changeStatusOfCell(int i, int j);
 
