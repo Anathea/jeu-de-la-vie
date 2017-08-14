@@ -10,11 +10,13 @@ CONFIG -= app_bundle
 
 SOURCES += cpp/main.cpp \
     cpp/wmanager.cpp \
-    cpp/GameOfLife.cpp
+    cpp/GameOfLife.cpp \
+    cpp/Grid.cpp
 
 HEADERS += \
     cpp/wmanager.h \
-    cpp/GameOfLife.h
+    cpp/GameOfLife.h \
+    cpp/Grid.h
 
 DISTFILES += \
     qml/ZButton.qml \

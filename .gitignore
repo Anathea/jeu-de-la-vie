@@ -8,3 +8,4 @@ projet_Vie.pro.user
 *.o
 projet_Vie
 moc_*
+nbproject/*
