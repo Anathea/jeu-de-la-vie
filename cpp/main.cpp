@@ -30,15 +30,15 @@ int main(int argc, char *argv[])
 
     GameOfLife game;
 
-    game.grid().setNewDimensions(40, 40);
+    game.grid().setNewDimensions(41, 41);
 
-    game.grid().changeStatusOfCell(16, 16);
-    game.grid().changeStatusOfCell(16, 17);
-    game.grid().changeStatusOfCell(16, 18);
-    game.grid().changeStatusOfCell(17, 16);
-    game.grid().changeStatusOfCell(17, 18);
-    game.grid().changeStatusOfCell(18, 16);
-    game.grid().changeStatusOfCell(18, 18);
+    game.grid().changeStatusOfCell(19, 19);
+    game.grid().changeStatusOfCell(19, 20);
+    game.grid().changeStatusOfCell(19, 21);
+    game.grid().changeStatusOfCell(20, 19);
+    game.grid().changeStatusOfCell(20, 21);
+    game.grid().changeStatusOfCell(21, 19);
+    game.grid().changeStatusOfCell(21, 21);
 
     game.afficheGrid();
 
@@ -47,7 +47,6 @@ int main(int argc, char *argv[])
 
 
 
-    game.step();
     game.step();
     game.step();
     game.step();
