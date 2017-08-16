@@ -10,10 +10,10 @@ Rectangle {
     width : root.nbCellX * coteCell
     height : root.nbCellY * coteCell
 
-    ListView{
-        anchors.fill: parent
-        orientation: ListView.Vertical
-        interactive: false
+    ListView {
+        anchors.fill : parent
+        orientation : ListView.Vertical
+        interactive : false
 
         model : modelPlateau
         delegate : LigneCase {

@@ -139,11 +139,11 @@ Grid *Grid::prevStep()
 
 void Grid::afficheGrid() const
 {
-    std::cout << "—";
+    std::cout << "-";
 
     for (int i = 0; i < this->m_nbColumns; ++i)
     {
-        std::cout << "————";
+        std::cout << "----";
     }
 
     std::cout << std::endl;
@@ -158,11 +158,11 @@ void Grid::afficheGrid() const
         }
 
         std::cout << std::endl;
-        std::cout << "—";
+        std::cout << "-";
 
         for (size_t i = 0; i < tabDeTab.size(); ++i)
         {
-            std::cout << "————";
+            std::cout << "----";
         }
 
         std::cout << std::endl;

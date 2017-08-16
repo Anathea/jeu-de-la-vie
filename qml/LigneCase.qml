@@ -8,35 +8,37 @@ ListView {
 
     property string ligneCase_model : modelData
 
-    onLigneCase_modelChanged: {
+    onLigneCase_modelChanged : {
         // Transformation de la chaîne de caractère en tableau
         // Pour pouvoir affecter dynamiquement ce tableau au model de LigneCase
 
         var rsltModel = []
-        for( var i=0 ; i< ligneCase_model.length ; i++)
+
+        for(var i = 0; i < ligneCase_model.length; i++)
         {
             rsltModel.push(ligneCase_model[i])
         }
+
         root.model = rsltModel
     }
 
     id : root
 
-    width : cote*nbCell
+    width : cote * nbCell
     height : root.cote
 
-    orientation: ListView.Horizontal
-    interactive: false
+    orientation : ListView.Horizontal
+    interactive : false
 
 //    model : le model n'est pas instancié au départ, mais à la création des éléments parents
     delegate : Case {
         cote : root.cote
-        vivante : modelData=="1"       
+        vivante : modelData == "1"
 
-        numColonne: index
-        numLigne: root.numLigne
+        numColonne : index
+        numLigne : root.numLigne
 
-        MouseArea{
+        MouseArea {
             anchors.fill : parent
             onClicked : {
                 //console.log(numColonne +' ' +root.numLigne )
