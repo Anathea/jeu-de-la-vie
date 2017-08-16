@@ -19,6 +19,10 @@ public:
     Grid *step();
     Grid *prevStep();
 
+    Grid *reset();
+
+    grille getGrid();
+
 private:
     Grid *prev;
     Grid *next;

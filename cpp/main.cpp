@@ -13,28 +13,28 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     WManager::getInstance()->load();
 
-    int iterationNb = 110;
+//    int iterationNb = 110;
 
-    GameOfLife game;
+//    GameOfLife game;
 
-    game.grid().setNewDimensions(41, 41);
+//    game.grid().setNewDimensions(41, 41);
 
-    game.grid().changeStatusOfCell(19, 19);
-    game.grid().changeStatusOfCell(19, 20);
-    game.grid().changeStatusOfCell(19, 21);
-    game.grid().changeStatusOfCell(20, 19);
-    game.grid().changeStatusOfCell(20, 21);
-    game.grid().changeStatusOfCell(21, 19);
-    game.grid().changeStatusOfCell(21, 21);
+//    game.grid().changeStatusOfCell(19, 19);
+//    game.grid().changeStatusOfCell(19, 20);
+//    game.grid().changeStatusOfCell(19, 21);
+//    game.grid().changeStatusOfCell(20, 19);
+//    game.grid().changeStatusOfCell(20, 21);
+//    game.grid().changeStatusOfCell(21, 19);
+//    game.grid().changeStatusOfCell(21, 21);
 
-    game.afficheGrid();
+//    game.afficheGrid();
 
-    for (int i = 0; i < iterationNb; ++i)
-    {
-        game.step();
-    }
+//    for (int i = 0; i < iterationNb; ++i)
+//    {
+//        game.step();
+//    }
 
-    game.afficheGrid();
+//    game.afficheGrid();
 
     qDebug() << "avant return a.exec dans le main.";
     return a.exec();

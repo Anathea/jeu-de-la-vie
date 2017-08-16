@@ -43,8 +43,13 @@ public:
 
     void updateQML_ListView(QString nomModele, QStringList sl);
 
-    Q_INVOKABLE void sendActionToCpp(QString nom, QString param);
-    Q_INVOKABLE void sendCaseToCpp(QPoint );
+    Q_INVOKABLE void sendActionToCpp(unsigned int a, unsigned int b);
+    Q_INVOKABLE void sendCaseToCpp(QPoint);
+
+    Q_INVOKABLE void multipleStep(unsigned int a = 110);
+    Q_INVOKABLE void step();
+    Q_INVOKABLE void prevStep();
+    Q_INVOKABLE void reset();
 
     //http://annabellecollin.perso.math.cnrs.fr/TPS/TP_3.pdf
     QStringList createStringFromPlateau(std::vector<std::vector<int>> plateau);

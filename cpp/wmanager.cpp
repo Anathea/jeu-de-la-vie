@@ -43,14 +43,14 @@ void WManager::makeQMLtab(QString nomFichierQMLsansExtension)
 
     // Initialisation plateau
     initPlateau();
-    QStringList sl_plateau = createStringFromPlateau( gl.grid() );
+    QStringList sl_plateau = createStringFromPlateau(gl.grid().getGrid());
     updateQML_ListView("modelPlateau", sl_plateau);
 
     //
     QString repertoireProjet = getRepertoireProjet();
 
-    QString fichierQML = repertoireProjet + QString("/qml/") + nomFichierQMLsansExtension + QString(".qml"); // Pour Windows
-//    QString fichierQML = QCoreApplication::applicationDirPath() + "/qml/qml.qml"; // Pour Linux
+//    QString fichierQML = repertoireProjet + QString("/qml/") + nomFichierQMLsansExtension + QString(".qml"); // Pour Windows
+    QString fichierQML = QCoreApplication::applicationDirPath() + "/qml/qml.qml"; // Pour Linux
     std::cout  << "charge le fichier QML : " << fichierQML.toLatin1().constData() << std::endl;
 
     // Chargement du fichier QML
@@ -91,42 +91,62 @@ void WManager::updateQML_ListView(QString nomModele, QStringList sl)
     m_qmlContext->setContextProperty(nomModele, QVariant::fromValue( sl ) );
 }
 
-void WManager::sendActionToCpp(QString nom, QString param)
+void WManager::sendActionToCpp(unsigned int a, unsigned int b)
 {
-    qDebug() << "WManager::sendActionfromQML : " << nom;
+    initPlateau(a, b);
 
-    if ( nom == "updateCombo" )
-    {
-        QStringList nouvelleListe;
-        nouvelleListe << "chaine 5";
-        nouvelleListe << "chaine 6";
-
-        updateQML_ListView( "SousTypes", nouvelleListe );
-    }
-    else /*if ( nom == "changeCaseValue" )*/
-    {
-        qDebug() << "paramètres => " << param;
-    }
+    updateQML_ListView("modelPlateau",  createStringFromPlateau(gl.grid().getGrid()));
 }
 
 void WManager::sendCaseToCpp(QPoint pt)
 {
-//    m_plateau[pt.y()][pt.x()] = 1 - m_plateau[pt.y()][pt.x()];
-    gl.grid().changeStatusOfCell( pt.y(), pt.x() );
-    updateQML_ListView("modelPlateau", createStringFromPlateau(gl.grid()) );
+    gl.grid().changeStatusOfCell(pt.y(), pt.x());
+
+    updateQML_ListView("modelPlateau",  createStringFromPlateau(gl.grid().getGrid()));
+}
+
+void WManager::multipleStep(unsigned int a)
+{
+    grille newGrille;
+
+    for (unsigned int i = 0; i < a; ++i)
+    {
+        newGrille = gl.step();
+    }
+
+    updateQML_ListView("modelPlateau",  createStringFromPlateau(newGrille));
+}
+
+void WManager::step()
+{
+    grille newGrille;
+
+    newGrille = gl.step();
+
+    updateQML_ListView("modelPlateau",  createStringFromPlateau(newGrille));
+}
+
+void WManager::prevStep()
+{
+    grille newGrille;
+
+    newGrille = gl.prevStep();
+
+    updateQML_ListView("modelPlateau",  createStringFromPlateau(newGrille));
+}
+
+void WManager::reset()
+{
+    grille newGrille;
+
+    newGrille = gl.reset();
+
+    updateQML_ListView("modelPlateau",  createStringFromPlateau(newGrille));
 }
 
 void WManager::initPlateau(int i, int j)
 {
-    gl.grid().setNewDimensions(10, 10);
-
-    // écrire la fonction équivalente à l'initialisation avec 2 boucles for, qqchose comme
-
-//    for (int p = 0; p < i; ++p) {
-//        for (int q = 0; var < j; ++var) {
-//            m_plateau.push_back(0);
-//        }
-//    }
+    gl.grid().setNewDimensions(i, j);
 }
 
 QStringList WManager::createStringFromPlateau(std::vector<std::vector<int>> plateau)
@@ -141,5 +161,6 @@ QStringList WManager::createStringFromPlateau(std::vector<std::vector<int>> plat
         }
         rslt << ligne;
     }
+
     return rslt;
 }

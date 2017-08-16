@@ -101,6 +101,11 @@ void Grid::changeStatusOfCell(int i, int j)
     this->m_grid[i][j] = !this->m_grid[i][j];
 }
 
+grille Grid::getGrid()
+{
+    return m_grid;
+}
+
 // Mise à jour du statut des cellules lors d’une itération
 Grid *Grid::step()
 {
@@ -135,6 +140,17 @@ Grid *Grid::prevStep()
     }
 
     return this->prev;
+}
+
+Grid *Grid::reset()
+{
+    Grid *newResetGrid = new Grid(this->m_nbLines, this->m_nbColumns);
+
+    newResetGrid->prev = this;
+    newResetGrid->next = nullptr;
+    this->next = newResetGrid;
+
+    return newResetGrid;
 }
 
 void Grid::afficheGrid() const

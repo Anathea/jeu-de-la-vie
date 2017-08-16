@@ -14,6 +14,7 @@ public :
 
     grille step();
     grille prevStep();
+    grille reset();
 
     void afficheGrid() const; // afficher une grille en console
 

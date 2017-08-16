@@ -4,12 +4,13 @@ import QtQuick.Controls 1.4
 Rectangle {
 
     TextField {
+        id : idTextFieldIteration
         x : 5
         y : 5
         width : 80
         height : 20
         placeholderText : qsTr("Number")
-        validator : IntValidator
+//        validator : IntValidator
     }
 
     Button {
@@ -18,7 +19,7 @@ Rectangle {
         width : 80
         text : "Play!"
         onClicked : {
-            Context.sendActionToCpp("activate", 'maChaineDuPlateau')
+            Context.multipleStep(idTextFieldIteration.displayText)
         }
     }
 
@@ -28,7 +29,7 @@ Rectangle {
         width : 80
         text : "Reset"
         onClicked : {
-            Context.sendActionToCpp("reset", 'maChaineDuPlateau')
+            Context.reset()
         }
     }
 
@@ -38,7 +39,7 @@ Rectangle {
         width : 80
         text : "1 more"
         onClicked : {
-            Context.sendActionToCpp("oneMore", 'maChaineDuPlateau')
+            Context.step()
         }
     }
 
@@ -48,7 +49,7 @@ Rectangle {
         width : 80
         text : "1 less"
         onClicked : {
-            Context.sendActionToCpp("oneLess", 'maChaineDuPlateau')
+            Context.prevStep()
         }
     }
 
@@ -69,19 +70,21 @@ Rectangle {
     }
 
     TextField {
+        id : idTextFieldLignes
         x : 5
         y : 180
         width : 130
         placeholderText : qsTr("Number of lines")
-        validator : IntValidator
+//        validator : IntValidator
     }
 
     TextField {
+        id : idTextFieldColonnes
         x : 5
         y : 205
         width : 130
         placeholderText : qsTr("Number of columns")
-        validator : IntValidator
+//        validator : IntValidator
     }
 
     Button {
@@ -90,7 +93,7 @@ Rectangle {
         width : 80
         text : "New board"
         onClicked : {
-            Context.sendActionToCpp("dimensions", 'maChaineDuPlateau')
+            Context.sendCaseToCpp(idTextFieldLignes.displayText, idTextFieldColonnes.displayText)
         }
     }
 

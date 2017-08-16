@@ -12,12 +12,22 @@ GameOfLife::GameOfLife(int nbLignes, int nbColumns)
 grille GameOfLife::step()
 {
     this->m_grid = this->m_grid->step();
+
+    return this->m_grid->getGrid();
 }
 
 grille GameOfLife::prevStep()
 {
     this->m_grid = this->m_grid->prevStep();
-    return this->m_grid;
+
+    return this->m_grid->getGrid();
+}
+
+grille GameOfLife::reset()
+{
+    this->m_grid = this->m_grid->reset();
+
+    return this->m_grid->getGrid();
 }
 
 
