@@ -8,6 +8,8 @@ Grid::Grid(int nbLignes, int nbColumns)
     this->m_nbLines = 0;
     this->m_nbColumns = 0;
     this->setNewDimensions(nbLignes, nbColumns);
+    this->prev = nullptr;
+    this->next = nullptr;
 }
 
 Grid::Grid(const Grid &grid)
@@ -60,7 +62,7 @@ int Grid::nbAlivedNeighbours(int i, int j)
         {
             aliveNeighbours += this->m_grid[i - 1][j - 1];
         }
-        else if (j < (this->m_nbColumns - 1))
+        if (j < (this->m_nbColumns - 1))
         {
             aliveNeighbours += this->m_grid[i - 1][j + 1];
         }
@@ -70,11 +72,11 @@ int Grid::nbAlivedNeighbours(int i, int j)
     {
         aliveNeighbours += this->m_grid[i + 1][j];
 
-        if (j < 0)
+        if (j > 0)
         {
             aliveNeighbours += this->m_grid[i + 1][j - 1];
         }
-        else if (j < (this->m_nbColumns - 1))
+        if (j < (this->m_nbColumns - 1))
         {
             aliveNeighbours += this->m_grid[i + 1][j + 1];
         }
@@ -84,7 +86,8 @@ int Grid::nbAlivedNeighbours(int i, int j)
     {
         aliveNeighbours += this->m_grid[i][j - 1];
     }
-    else if (j < (this->m_nbColumns - 1))
+
+    if (j < (this->m_nbColumns - 1))
     {
         aliveNeighbours += this->m_grid[i][j + 1];
     }
@@ -99,9 +102,9 @@ void Grid::changeStatusOfCell(int i, int j)
 }
 
 // Mise à jour du statut des cellules lors d’une itération
-Grid Grid::step()
+Grid *Grid::step()
 {
-    Grid newGrid = new Grid(this);
+    Grid *newGrid = this->clone();
 
     for (size_t i = 0; i < this->m_grid.size(); ++i)
     {
@@ -112,16 +115,26 @@ Grid Grid::step()
             if ((this->m_grid[i][j] == 0 && neighbours == 3)
                     || (this->m_grid[i][j] != 0 && (neighbours < 2 || neighbours > 3)))
             {
-                newGrid.changeStatusOfCell(i, j);
+                newGrid->changeStatusOfCell(i, j);
             }
         }
     }
 
-    newGrid.prev = this;
-    newGrid.next = NULL;
+    newGrid->prev = this;
+    newGrid->next = nullptr;
     this->next = newGrid;
 
     return newGrid;
+}
+
+Grid *Grid::prevStep()
+{
+    if (!this->prev)
+    {
+        return this;
+    }
+
+    return this->prev;
 }
 
 void Grid::afficheGrid() const

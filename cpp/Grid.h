@@ -16,7 +16,8 @@ public:
     void afficheGrid() const; // afficher une grille en console
     void changeStatusOfCell(int i, int j);
 
-    Grid step();
+    Grid *step();
+    Grid *prevStep();
 
 private:
     Grid *prev;

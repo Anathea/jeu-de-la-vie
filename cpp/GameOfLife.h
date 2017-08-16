@@ -10,10 +10,12 @@ public :
 
     void load(grille grid);
 
-    Grid grid() const;
+    Grid& grid();
 
     void step();
-    void previousPlay();
+    void prevStep();
+
+    void afficheGrid() const; // afficher une grille en console
 
 //    void saveSolution(grille grid);
 

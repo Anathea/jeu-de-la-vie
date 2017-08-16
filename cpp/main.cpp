@@ -4,6 +4,7 @@
 
 #include "cpp/wmanager.h"
 #include "cpp/GameOfLife.h"
+#include "cpp/Grid.h"
 
 WManager                            *WManager::_singleton                   = NULL;
 
@@ -29,17 +30,19 @@ int main(int argc, char *argv[])
 
     GameOfLife game;
 
-    game.setNewDimensions(3, 3);
-    game.afficheGrid();
+    game.grid().changeStatusOfCell(1,0);
+    game.grid().changeStatusOfCell(1,1);
+    game.grid().changeStatusOfCell(1,2);
 
-    std::cout << std::endl;
-
-    game.changeStatusOfCell(0, 1);
-    game.changeStatusOfCell(1, 0);
-    game.changeStatusOfCell(2, 1);
     game.afficheGrid();
 
     game.step();
+    game.afficheGrid();
+
+    game.prevStep();
+    game.afficheGrid();
+
+    game.prevStep();
     game.afficheGrid();
 
 //    return a.exec();
