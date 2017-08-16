@@ -30,19 +30,135 @@ int main(int argc, char *argv[])
 
     GameOfLife game;
 
-    game.grid().changeStatusOfCell(1,0);
-    game.grid().changeStatusOfCell(1,1);
-    game.grid().changeStatusOfCell(1,2);
+    game.grid().setNewDimensions(40, 40);
+
+    game.grid().changeStatusOfCell(16, 16);
+    game.grid().changeStatusOfCell(16, 17);
+    game.grid().changeStatusOfCell(16, 18);
+    game.grid().changeStatusOfCell(17, 16);
+    game.grid().changeStatusOfCell(17, 18);
+    game.grid().changeStatusOfCell(18, 16);
+    game.grid().changeStatusOfCell(18, 18);
 
     game.afficheGrid();
+
+
+
+
+
 
     game.step();
-    game.afficheGrid();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
+    game.step();
 
-    game.prevStep();
-    game.afficheGrid();
-
-    game.prevStep();
     game.afficheGrid();
 
 //    return a.exec();

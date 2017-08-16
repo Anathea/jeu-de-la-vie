@@ -154,7 +154,10 @@ void Grid::afficheGrid() const
 
         for (bool element : tabDeTab)
         {
-            std::cout << " " << element << " |";
+
+            std::cout << " ";
+            (element) ? std::cout << "X" : std::cout << " ";
+            std::cout << " |";
         }
 
         std::cout << std::endl;
