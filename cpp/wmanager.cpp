@@ -5,6 +5,8 @@
 #include <QFileDialog>
 #include <iostream>
 
+#include "GameOfLife.h"
+
 
 
 WManager::WManager(QObject *parent) : QObject(parent)
@@ -47,8 +49,8 @@ void WManager::makeQMLtab(QString nomFichierQMLsansExtension)
     //
     QString repertoireProjet = getRepertoireProjet();
 
-//    QString fichierQML = repertoireProjet + QString("/qml/") + nomFichierQMLsansExtension + QString(".qml");
-    QString fichierQML = QCoreApplication::applicationDirPath() + "/qml/qml.qml";
+    QString fichierQML = repertoireProjet + QString("/qml/") + nomFichierQMLsansExtension + QString(".qml");
+//    QString fichierQML = QCoreApplication::applicationDirPath() + "/qml/qml.qml";
     std::cout  << "charge le fichier QML : " << fichierQML.toLatin1().constData() << std::endl;
 
     // Chargement du fichier QML
@@ -101,9 +103,9 @@ void WManager::sendActionToCpp(QString nom, QString param)
 
         updateQML_ListView( "SousTypes", nouvelleListe );
     }
-    else if ( nom == "changeCaseValue" )
+    else /*if ( nom == "changeCaseValue" )*/
     {
-        qDebug() << "paramètres=>" << param;
+        qDebug() << "paramètres => " << param;
     }
 }
 
@@ -115,7 +117,7 @@ void WManager::sendCaseToCpp(QPoint pt)
 
 void WManager::initPlateau(int i, int j)
 {
-    m_plateau = std::vector<std::vector<int>> { (size_t)i, std::vector<int>(j) };
+    m_plateau = std::vector<std::vector<int>> {(size_t)i, std::vector<int>(j)};
 
     // écrire la fonction équivalente à l'initialisation avec 2 boucles for, qqchose comme
 
@@ -129,12 +131,12 @@ void WManager::initPlateau(int i, int j)
 QStringList WManager::createStringFromPlateau(std::vector<std::vector<int>> plateau)
 {
     QStringList rslt;
-    for( std::vector<int> ligneP : plateau )
+    for (std::vector<int> ligneP : plateau)
     {
         QString ligne("");
-        for( int v : ligneP)
+        for (int v : ligneP)
         {
-            ligne += (v==0) ? "0" : "1";
+            ligne += (v == 0) ? "0" : "1";
         }
         rslt << ligne;
     }

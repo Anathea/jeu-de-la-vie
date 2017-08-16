@@ -23,8 +23,10 @@ public:
     explicit WManager(QObject *parent = 0);
 
     // Permet d'avoir une seule instance
-    static WManager *getInstance() {
-        if(NULL == _singleton) {
+    static WManager *getInstance()
+    {
+        if (NULL == _singleton)
+        {
             _singleton = new WManager ;
         }
         return _singleton ;
