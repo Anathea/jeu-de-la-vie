@@ -43,14 +43,14 @@ void WManager::makeQMLtab(QString nomFichierQMLsansExtension)
 
     // Initialisation plateau
     initPlateau();
-    QStringList sl_plateau = createStringFromPlateau(m_plateau);
+    QStringList sl_plateau = createStringFromPlateau( gl.grid() );
     updateQML_ListView("modelPlateau", sl_plateau);
 
     //
     QString repertoireProjet = getRepertoireProjet();
 
-    QString fichierQML = repertoireProjet + QString("/qml/") + nomFichierQMLsansExtension + QString(".qml");
-//    QString fichierQML = QCoreApplication::applicationDirPath() + "/qml/qml.qml";
+    QString fichierQML = repertoireProjet + QString("/qml/") + nomFichierQMLsansExtension + QString(".qml"); // Pour Windows
+//    QString fichierQML = QCoreApplication::applicationDirPath() + "/qml/qml.qml"; // Pour Linux
     std::cout  << "charge le fichier QML : " << fichierQML.toLatin1().constData() << std::endl;
 
     // Chargement du fichier QML
@@ -111,13 +111,14 @@ void WManager::sendActionToCpp(QString nom, QString param)
 
 void WManager::sendCaseToCpp(QPoint pt)
 {
-    m_plateau[pt.y()][pt.x()] = 1 - m_plateau[pt.y()][pt.x()];
-    updateQML_ListView("modelPlateau", createStringFromPlateau(m_plateau) );
+//    m_plateau[pt.y()][pt.x()] = 1 - m_plateau[pt.y()][pt.x()];
+    gl.grid().changeStatusOfCell( pt.y(), pt.x() );
+    updateQML_ListView("modelPlateau", createStringFromPlateau(gl.grid()) );
 }
 
 void WManager::initPlateau(int i, int j)
 {
-    m_plateau = std::vector<std::vector<int>> {(size_t)i, std::vector<int>(j)};
+    gl.grid().setNewDimensions(10, 10);
 
     // écrire la fonction équivalente à l'initialisation avec 2 boucles for, qqchose comme
 

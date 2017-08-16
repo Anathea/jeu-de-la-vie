@@ -12,8 +12,8 @@ public :
 
     Grid& grid();
 
-    void step();
-    void prevStep();
+    grille step();
+    grille prevStep();
 
     void afficheGrid() const; // afficher une grille en console
 

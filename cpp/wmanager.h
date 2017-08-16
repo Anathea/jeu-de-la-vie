@@ -13,6 +13,7 @@
 #include <QStringList>
 #include <QPoint>
 #include <vector>
+#include "GameOfLife.h"
 
 
 class WManager : public QObject
@@ -49,7 +50,8 @@ public:
     QStringList createStringFromPlateau(std::vector<std::vector<int>> plateau);
 
 private :
-    std::vector<std::vector<int>> m_plateau;
+//    std::vector<std::vector<int>> m_plateau;
+    GameOfLife gl;
     void initPlateau(int i=10, int j=10);
 
 protected:

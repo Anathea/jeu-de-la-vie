@@ -139,34 +139,34 @@ Grid *Grid::prevStep()
 
 void Grid::afficheGrid() const
 {
-    std::cout << "-";
-
-    for (int i = 0; i < this->m_nbColumns; ++i)
-    {
-        std::cout << "----";
-    }
-
-    std::cout << std::endl;
+//    std::cout << "-";
+//
+//    for (int i = 0; i < this->m_nbColumns; ++i)
+//    {
+//        std::cout << "----";
+//    }
+//
+//    std::cout << std::endl;
 
     for (std::vector<int> tabDeTab : this->m_grid)
     {
-        std::cout << "|";
+//        std::cout << "|";
 
         for (bool element : tabDeTab)
         {
 
             std::cout << " ";
-            (element) ? std::cout << "X" : std::cout << " ";
-            std::cout << " |";
+            (element) ? std::cout << "*" : std::cout << " ";
+//            std::cout << " |";
         }
 
         std::cout << std::endl;
-        std::cout << "-";
-
-        for (size_t i = 0; i < tabDeTab.size(); ++i)
-        {
-            std::cout << "----";
-        }
+//        std::cout << "-";
+//
+//        for (size_t i = 0; i < tabDeTab.size(); ++i)
+//        {
+//            std::cout << "----";
+//        }
 
         std::cout << std::endl;
     }

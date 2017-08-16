@@ -9,14 +9,15 @@ GameOfLife::GameOfLife(int nbLignes, int nbColumns)
 }
 
 // Mise à jour du statut des cellules lors d’une itération
-void GameOfLife::step()
+grille GameOfLife::step()
 {
     this->m_grid = this->m_grid->step();
 }
 
-void GameOfLife::prevStep()
+grille GameOfLife::prevStep()
 {
     this->m_grid = this->m_grid->prevStep();
+    return this->m_grid;
 }
 
 
