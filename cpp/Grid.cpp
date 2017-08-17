@@ -109,11 +109,16 @@ grille Grid::getGrid()
 // Mise à jour du statut des cellules lors d’une itération
 Grid *Grid::step()
 {
+    if (this->next)
+    {
+        return this->next;
+    }
+
     Grid *newGrid = this->clone();
 
-    for (size_t i = 0; i < this->m_grid.size(); ++i)
+    for (size_t i = 0; i < this->m_nbLines; ++i)
     {
-        for (size_t j = 0; j < this->m_grid[i].size(); ++j)
+        for (size_t j = 0; j < this->m_nbColumns; ++j)
         {
             int neighbours = this->nbAlivedNeighbours(i, j);
 

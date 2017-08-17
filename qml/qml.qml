@@ -93,7 +93,7 @@ Rectangle {
         width : 80
         text : "New board"
         onClicked : {
-            Context.sendCaseToCpp(idTextFieldLignes.displayText, idTextFieldColonnes.displayText)
+            Context.sendActionToCpp(idTextFieldLignes.displayText, idTextFieldColonnes.displayText)
         }
     }
 

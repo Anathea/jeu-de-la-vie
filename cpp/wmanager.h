@@ -43,7 +43,7 @@ public:
 
     void updateQML_ListView(QString nomModele, QStringList sl);
 
-    Q_INVOKABLE void sendActionToCpp(unsigned int a, unsigned int b);
+    Q_INVOKABLE void sendActionToCpp(unsigned int a = 10, unsigned int b = 10);
     Q_INVOKABLE void sendCaseToCpp(QPoint);
 
     Q_INVOKABLE void multipleStep(unsigned int a = 110);
@@ -57,7 +57,7 @@ public:
 private :
 //    std::vector<std::vector<int>> m_plateau;
     GameOfLife gl;
-    void initPlateau(int i=10, int j=10);
+    void initPlateau(int i = 10, int j = 10);
 
 protected:
     std::vector<QQuickView*> quickViews;

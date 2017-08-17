@@ -49,8 +49,8 @@ void WManager::makeQMLtab(QString nomFichierQMLsansExtension)
     //
     QString repertoireProjet = getRepertoireProjet();
 
-//    QString fichierQML = repertoireProjet + QString("/qml/") + nomFichierQMLsansExtension + QString(".qml"); // Pour Windows
-    QString fichierQML = QCoreApplication::applicationDirPath() + "/qml/qml.qml"; // Pour Linux
+    QString fichierQML = repertoireProjet + QString("/qml/") + nomFichierQMLsansExtension + QString(".qml"); // Pour Windows
+//    QString fichierQML = QCoreApplication::applicationDirPath() + "/qml/qml.qml"; // Pour Linux
     std::cout  << "charge le fichier QML : " << fichierQML.toLatin1().constData() << std::endl;
 
     // Chargement du fichier QML
@@ -93,7 +93,11 @@ void WManager::updateQML_ListView(QString nomModele, QStringList sl)
 
 void WManager::sendActionToCpp(unsigned int a, unsigned int b)
 {
+    qDebug() << "WManager::sendActionfromQML";
+
     initPlateau(a, b);
+
+    qDebug() << a << ", " << b;
 
     updateQML_ListView("modelPlateau",  createStringFromPlateau(gl.grid().getGrid()));
 }
