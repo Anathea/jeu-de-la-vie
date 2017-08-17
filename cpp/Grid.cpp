@@ -101,6 +101,7 @@ void Grid::changeStatusOfCell(int i, int j)
     this->m_grid[i][j] = !this->m_grid[i][j];
 }
 
+// Récupération du tableau
 grille Grid::getGrid()
 {
     return m_grid;
@@ -137,6 +138,7 @@ Grid *Grid::step()
     return newGrid;
 }
 
+// Retour à l'itération précédente
 Grid *Grid::prevStep()
 {
     if (!this->prev)
@@ -147,6 +149,7 @@ Grid *Grid::prevStep()
     return this->prev;
 }
 
+// Renvoie un nouvel objet initialisé à 0
 Grid *Grid::reset()
 {
     Grid *newResetGrid = new Grid(this->m_nbLines, this->m_nbColumns);
@@ -158,6 +161,7 @@ Grid *Grid::reset()
     return newResetGrid;
 }
 
+// Affichage en console
 void Grid::afficheGrid() const
 {
 //    std::cout << "-";

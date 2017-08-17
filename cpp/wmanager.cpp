@@ -93,8 +93,6 @@ void WManager::updateQML_ListView(QString nomModele, QStringList sl)
 
 void WManager::sendActionToCpp(unsigned int a, unsigned int b)
 {
-    qDebug() << "WManager::sendActionfromQML";
-
     initPlateau(a, b);
 
     qDebug() << a << ", " << b;

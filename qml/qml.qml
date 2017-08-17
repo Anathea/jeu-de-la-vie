@@ -75,7 +75,6 @@ Rectangle {
         y : 180
         width : 130
         placeholderText : qsTr("Number of lines")
-//        validator : IntValidator
     }
 
     TextField {
@@ -84,7 +83,6 @@ Rectangle {
         y : 205
         width : 130
         placeholderText : qsTr("Number of columns")
-//        validator : IntValidator
     }
 
     Button {
@@ -100,8 +98,8 @@ Rectangle {
     PlateauVie {
         x : 150
         y : 5
-        nbCellX : 24
-        nbCellY : 20
+        nbCellX : 240
+        nbCellY : 200
         coteCell : 25
     }
 
