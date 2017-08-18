@@ -7,6 +7,7 @@ typedef std::vector<std::vector<int>> grille;
 class Grid
 {
 public:
+    Grid();
     Grid(int nbLignes, int nbColumns);
     Grid(const Grid &grid);
 
