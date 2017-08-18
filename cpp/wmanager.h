@@ -51,6 +51,8 @@ public:
     Q_INVOKABLE void prevStep();
     Q_INVOKABLE void reset();
 
+    Q_INVOKABLE void save();
+
     //http://annabellecollin.perso.math.cnrs.fr/TPS/TP_3.pdf
     QStringList createStringFromPlateau(std::vector<std::vector<int>> plateau);
 

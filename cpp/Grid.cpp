@@ -5,8 +5,8 @@
 // Constructeur
 Grid::Grid(int nbLignes, int nbColumns)
 {
-    this->m_nbLines = 0;
-    this->m_nbColumns = 0;
+    this->m_nbLines = nbLignes;
+    this->m_nbColumns = nbColumns;
     this->setNewDimensions(nbLignes, nbColumns);
     this->prev = nullptr;
     this->next = nullptr;

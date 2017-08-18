@@ -95,8 +95,6 @@ void WManager::sendActionToCpp(unsigned int a, unsigned int b)
 {
     initPlateau(a, b);
 
-    qDebug() << a << ", " << b;
-
     updateQML_ListView("modelPlateau",  createStringFromPlateau(gl.grid().getGrid()));
 }
 
@@ -144,6 +142,14 @@ void WManager::reset()
     newGrille = gl.reset();
 
     updateQML_ListView("modelPlateau",  createStringFromPlateau(newGrille));
+}
+
+void WManager::save()
+{
+    QStringList sl;
+
+    sl = createStringFromPlateau(gl.grid().getGrid());
+
 }
 
 void WManager::initPlateau(int i, int j)
