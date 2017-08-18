@@ -3,6 +3,11 @@
 #include "Grid.h"
 
 // Constructeur
+Grid::Grid()
+{
+
+}
+
 Grid::Grid(int nbLignes, int nbColumns)
 {
     this->m_nbLines = nbLignes;
